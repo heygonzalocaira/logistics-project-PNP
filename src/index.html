@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sistema de Tramite Documentario</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+    <body>        
+        <div class="container">
+            <div class="row">
+                <div class="tm-left-right-container">
+                    <div class="tm-blue-bg tm-left-column">                        
+                        <div class="tm-logo-div text-xs-center">
+                            <img src="img/profile.png" >
+                            <div class="tm-logo-div2 text-xs-center">Usuario<br><a>Administrador</a></div>
+                        </div>
+                        <nav class="tm-main-nav">
+                            <ul class="tm-main-nav-ul">
+                                <li class="tm-nav-item">
+                                    <a href="index.html" class="tm-nav-item-link">AÑADIR NUEVO</a>
+                                </li>
+                                <li class="tm-nav-item">
+                                    <a href="historial.html" class="tm-nav-item-link">HISTORIAL</a>
+                                </li>
+                                <li class="tm-nav-item">
+                                    <a href="reportes.html" class="tm-nav-item-link">REPORTES</a>
+                                </li>
+                                <li class="tm-nav-item">
+                                    <a class="tm-nav-item-link">SALIR</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div> 
+
+                    <div class="tm-right-column">
+                        <div >
+                            <form action="/">
+                              <h2 align="center">REGISTRAR NUEVO DOCUMENTO</h2>
+                              <div class="btn-block"  align="tm-left-right-container">
+                                <button type="submit" href="/">Común</button>
+                                <button type="submit" href="/">Clasificado</button>
+                                <button type="submit" href="/">Limpiar</button>
+                                <button type="submit" href="/">Registrar</button>
+                              </div>
+                              <div class="colums4">
+                                <div class="item">
+                                  <label for="fname">Clasificación</label>
+                                  <input class="inputBorder" id="fname" type="text" name="fname" />
+                                </div>
+                                <div class="item">
+                                  <label for="lname">Nro de hoja</label>
+                                  <input class="inputBorder" id="lname" type="text" name="lname" placeholder="Ej.0001"/>
+                                </div>
+                                <div class="item">
+                                    <label for="fname">Fecha de ingreso</label>
+                                    <input class="inputBorder"id="fname" type="text" name="fname" placeholder="dd/mm/aa" />
+                                  </div>
+                                  <div class="item">
+                                    <label for="lname">Fecha de salida</label>
+                                    <input class="inputBorder" id="lname" type="text" name="lname" placeholder="dd/mm/aa"/>
+                                  </div>
+                              </div>
+                              <hr/>
+                              <div class="colums2">
+                                <div class="item">
+                                  <label for="fname">Unidad de remitente</label>
+                                  <input class="inputBorder"id="fname" type="text" name="fname" placeholder="Buscar unidad.."/>
+                                </div>
+                                <div class="item">
+                                  <label for="lname">Remitente</label>
+                                  <input class="inputBorder"id="lname" type="text" name="lname" placeholder="Remitente"/>
+                                </div>
+                              </div>
+                              <hr/>
+                              <div class="colums2">
+                                <div class="item">
+                                  <label for="fname">Área de destino</label>
+                                  <input class="inputBorder"id="fname" type="text" name="fname" placeholder="Seleccionar"/>
+                                </div>
+                                <div class="item">
+                                  <label for="lname">Unidad de destino</label>
+                                  <input class="inputBorder"id="lname" type="text" name="lname" placeholder="Buscar unidad.."/>
+                                </div>
+                                <div class="item">
+                                    <label for="fname">Encargado</label>
+                                    <input class="inputBorder"id="fname" type="text" name="fname" placeholder="Buscar encargado.." />
+                                  </div>
+                                  <div class="item">
+                                    <label for="lname">Documento de Salida</label>
+                                    <input class="inputBorder"id="lname" type="text" name="lname" placeholder="Documento de respuesta" />
+                                  </div>
+                              </div>
+                              <hr/>
+                              <div class="colums3">
+
+                                <div class="item">
+                                    <p>Tipo de documento</p>
+                                    <select>
+                                      <option value="">Selecionar</option>
+                                      <option value="A">documento A</option>
+                                      <option value="B">documento B</option>
+                                      <option value="C">documento C</option>
+                                    </select>
+                                  </div>
+                                <div class="item">
+                                  <label for="lname">Unidad de destino</label>
+                                  <input class="inputBorder"id="lname" type="text" name="lname" placeholder="Ej.500A"/>
+                                </div>
+                                <div class="item">
+                                    <label for="fname">Encargado</label>
+                                    <input class="inputBorder"id="fname" type="text" name="fname" placeholder="dd/mm/aa"/>
+                                </div>
+
+                              </div>
+                              <div class="colums2">
+                                <div class="item">
+                                    <p>Asunto</p>
+                                    <textarea class="textBorder" rows="5" placeholder=" Escriba aqui el asunto"></textarea>
+                                </div>
+                                <div class="item">
+                                    <p>Obsercvaciones</p>
+                                    <textarea class="textBorder" rows="5" placeholder=" Escriba aqui sus Obsercvaciones"></textarea>  
+                                </div>
+                              </div>
+
+                            </form>
+                          </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/jquery.singlePageNav.min.js"></script>
+
+</body>
+</html>
