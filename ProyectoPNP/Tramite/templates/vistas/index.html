@@ -64,49 +64,49 @@
                             <div class="colums4">
                                 <div class="item">
                                     <label for="fname">Clasificación</label>
-                                    <input class="inputBorder" id="fname" type="text" name="fname" />
+                                    <input class="inputBorder" id="clasificacion_index" type="text" name="fname" />
                                 </div>
                                 <div class="item">
                                     <label for="lname">Nro de hoja</label>
-                                    <input class="inputBorder" id="lname" type="text" name="lname" placeholder="Ej.0001"/>
+                                    <input class="inputBorder" id="n_hoja_index" type="text" name="lname" placeholder="Ej.0001"/>
                                 </div>
                                 <div class="item">
                                     <label for="fname">Fecha de ingreso</label>
-                                    <input class="inputBorder" id="fname" type="text" name="fname" placeholder="dd/mm/aa" />
+                                    <input class="inputBorder" id="f_ingreso_index" type="text" name="fname" placeholder="dd/mm/aa" />
                                 </div>
                                 <div class="item">
                                     <label for="lname">Fecha de salida</label>
-                                    <input class="inputBorder" id="lname" type="text" name="lname" placeholder="dd/mm/aa"/>
+                                    <input class="inputBorder" id="f_salida_index" type="text" name="lname" placeholder="dd/mm/aa"/>
                                 </div>
                             </div>
                             <hr/>
                             <div class="colums2">
                                 <div class="item">
                                   <label for="fname">Unidad de remitente</label>
-                                  <input class="inputBorder"id="fname" type="text" name="fname" placeholder="Buscar unidad.."/>
+                                  <input class="inputBorder"id="u_remitente_index" type="text" name="fname" placeholder="Buscar unidad.."/>
                                 </div>
                                 <div class="item">
                                   <label for="lname">Remitente</label>
-                                  <input class="inputBorder"id="lname" type="text" name="lname" placeholder="Remitente"/>
+                                  <input class="inputBorder"id="remitente_index" type="text" name="lname" placeholder="Remitente"/>
                                 </div>
                               </div>
                             <hr/>
                               <div class="colums2">
                                   <div class="item">
                                       <label for="fname">Área de destino</label>
-                                      <input class="inputBorder"id="fname" type="text" name="fname" placeholder="Seleccionar"/>
+                                      <input class="inputBorder"id="a_destino_index" type="text" name="fname" placeholder="Seleccionar"/>
                                   </div>
                                   <div class="item">
                                       <label for="lname">Unidad de destino</label>
-                                      <input class="inputBorder"id="lname" type="text" name="lname" placeholder="Buscar unidad.."/>
+                                      <input class="inputBorder"id="u_destino_index" type="text" name="lname" placeholder="Buscar unidad.."/>
                                   </div>
                                   <div class="item">
                                       <label for="fname">Encargado</label>
-                                      <input class="inputBorder"id="fname" type="text" name="fname" placeholder="Buscar encargado.." />
+                                      <input class="inputBorder"id="encargado_index" type="text" name="fname" placeholder="Buscar encargado.." />
                                   </div>
                                   <div class="item">
                                       <label for="lname">Documento de Salida</label>
-                                      <input class="inputBorder"id="lname" type="text" name="lname" placeholder="Documento de respuesta" />
+                                      <input class="inputBorder"id="d_salida_index" type="text" name="lname" placeholder="Documento de respuesta" />
                                   </div>
                               </div>
                             <hr/>
@@ -122,21 +122,21 @@
                                 </div>
                                 <div class="item">
                                     <label for="lname">Unidad de destino</label>
-                                    <input class="inputBorder"id="lname" type="text" name="lname" placeholder="Ej.500A"/>
+                                    <input class="inputBorder"id="u_destino_2" type="text" name="lname" placeholder="Ej.500A"/>
                                 </div>
                                 <div class="item">
                                     <label for="fname">Encargado</label>
-                                    <input class="inputBorder"id="fname" type="text" name="fname" placeholder="dd/mm/aa"/>
+                                    <input class="inputBorder"id="encargado_2" type="text" name="fname" placeholder="dd/mm/aa"/>
                                 </div>
                             </div>
                             <div class="colums2">
                                 <div class="item">
                                     <p>Asunto</p>
-                                    <textarea class="textBorder" rows="5" placeholder=" Escriba aqui el asunto"></textarea>
+                                    <textarea class="textBorder" id="t_asunto" rows="5" placeholder=" Escriba aqui el asunto"></textarea>
                                 </div>
                                 <div class="item">
                                     <p>Observaciones</p>
-                                    <textarea class="textBorder" rows="5" placeholder=" Escriba aqui sus Obsercvaciones"></textarea>
+                                    <textarea class="textBorder" id="t_observaciones"rows="5" placeholder=" Escriba aqui sus Obsercvaciones"></textarea>
                                 </div>
                             </div>
                         </form>
@@ -148,8 +148,3 @@
 
 {% endblock %}
 
-{% block scripts %}
-    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>
-{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block metadata %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% endblock %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Reportes
+{% endblock %}
+
+{% block content %} 
+    <div class="container">
+        <div class="row">
+            <div class="tm-left-right-container">
+                <div class="tm-blue-bg tm-left-column">                        
+                    <div class="tm-logo-div text-xs-center">
+                        <img src="{% static 'img/profile.png' %}" >
+                        <div class="tm-logo-div2 text-xs-center">
+                            Usuario {{user.username}}<br>
+                            <a>Administrador</a>
+                        </div>
+                    </div>
+                    <nav class="tm-main-nav">
+                        <ul class="tm-main-nav-ul">
+                            <li class="tm-nav-item">
+                                <a href="index.html" class="tm-nav-item-link">AÑADIR NUEVO</a>
+                            </li>
+                            <li class="tm-nav-item">
+                                <a href="historial.html" class="tm-nav-item-link">HISTORIAL</a>
+                            </li>
+                            <li class="tm-nav-item">
+                                <a href="reportes.html" class="tm-nav-item-link">REPORTES</a>
+                            </li>
+                            <li class="tm-nav-item">
+                                <a href="/logout" class="tm-nav-item-link">SALIR</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div> 
+                <div class="tm-right-column2report">
+                    <div >
+                        <form action="/">
+                          <h2 align="center">GENERAR REPORTES</h2>
+                          <div class="btn-block" >
+                            <button type="submit" href="/">Pendiente</button>
+                            <button type="submit" href="/">Tramitado</button>
+                          </div>
+                          <div class="colums2report">
+                            <div class="item">
+                              <label for="fname">Encargado</label>
+                              <input class="inputBorder"id="encargado_reportes" type="text" name="fname" placeholder="Buscar encargado.."/>
+                            </div>
+                            <div class="item">
+                              <label for="lname">Fecha</label>
+                              <input class="inputBorder"id="fecha_reportes" type="text" name="lname" placeholder="dd/mm/aa"/>
+                            </div>
+                          </div>
+                          <div class="colums2report">
+                            <div class="item">
+                                <p>Area</p>
+                                <select>
+                                  <option value="">Todas</option>
+                                  <option value="A">A</option>
+                                  <option value="B">B</option>
+                                  <option value="C">C</option>
+                                </select>
+                              </div>
+                            <div class="item">
+                                <label for="fname">Unidad</label>
+                                <input class="inputBorder"id="unidad_reportes" type="text" name="fname" placeholder="Buscar unidad.."/>
+                            </div>
+                            <div class="btn-block"  align="right">
+                                <button type="submit" href="/">GENERAR</button>
+                            </div>
+                        </form>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
