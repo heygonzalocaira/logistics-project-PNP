@@ -1,5 +1,44 @@
 from django.db import models
+from django.contrib.auth.models import User
 # Create your models here.
+
+
+class MUserGrado(models.Model):
+    codGrado = models.IntegerField()
+    Grado = models.CharField(max_length=50)
+    Descripcion = models.TextField()
+    Clase = models.CharField(max_length=50)
+    OrdClase = models.IntegerField()
+    Categoria = models.CharField(max_length=50)
+    OrdCategoria = models.IntegerField()
+    Jerarquia = models.CharField(max_length=50)
+    OrdJerarquia = models.IntegerField()
+    Estado = models.IntegerField()
+    obs = models.TextField()
+
+
+class MUserRol(models.Model):
+    rol = models.CharField(max_length=100)
+    Descripcion = models.TextField()
+    Estado = models.IntegerField()
+    obs = models.TextField()
+
+
+class MUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    cip = models.IntegerField()
+    idGrado = models.IntegerField()
+    Grado = models.CharField(max_length=50)
+    ApePaterno = models.CharField(max_length=50)
+    ApeMaterno = models.CharField(max_length=50)
+    Nombres = models.CharField(max_length=50)
+    Imagen = models.ImageField(upload_to="img/")
+    Administrador = models.BooleanField()
+    idRol = models.IntegerField()
+    activo = models.BooleanField()
+    estado = models.IntegerField()
+    MotivoBaja = models.TextField()
+    obs = models.TextField()
 
 
 class MtipoDocumento(models.Model):

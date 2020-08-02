@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block metadata %} {% endblock %}
+
+        <title>{% block title %} {% endblock %}</title>
+
+        {% block css %} {% endblock %}
+
+
+    </head>
+    <body>
+
+        {% block content %}
+
+        {% endblock %}
+
+        {% block scripts %}
+
+        {% endblock %}
+
+
+    </body>
+</html>
+

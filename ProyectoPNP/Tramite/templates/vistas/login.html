@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/loginStyle.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Simple login form
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8 text-center">
+                <form method="POST">
+                    {% csrf_token %}
+                  <h1>BIENVENIDO</h1>
+                  <div class="formcontainer">
+                      <hr/>
+                      <div>
+                        <label for="uname"><strong>Usuario</strong></label>
+                        <input type="text" placeholder="Ingrese su nombre de usuario" name="uname" id="uname">
+                        <label for="psw"><strong>Contraseña</strong></label>
+                        <input type="password" placeholder="Ingrese su contraseña" name="psw" id="psw">
+                      </div>
+                      <button type="submit">INGRESAR</button>
+                      <!-- <a href="index.html" >Ir al index (borrar)</a> !-->
+                  </div>
+
+                </form>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-md-12 justify-content-center">
+                    {% if message %}
+                        <p class="font-weight-bold text-danger ">{{ message }}</p>
+                    {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
