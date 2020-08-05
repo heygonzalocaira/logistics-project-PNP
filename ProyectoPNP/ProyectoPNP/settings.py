@@ -27,13 +27,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MATERIAL_ADMIN_SITE = {
+    'MAIN_BG_COLOR':  '#00264C',  # Admin site main color, css color should be specified
+    'MAIN_HOVER_COLOR':  '#0D877A',  # Admin site main hover color, css color should be specified
+}
+
 
 # Application definition
 
 INSTALLED_APPS = [
     'material',
     'material.admin',
-    'django.contrib.admin',
+    'material.admin.default',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

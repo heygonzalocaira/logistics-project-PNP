@@ -15,7 +15,7 @@ def login_user(request):
                 # return redirect('admin/')
                 return redirect(reverse('index'))
             else:
-                return render(request, 'vistas/login.html', {'message': "Fallo la autenticación"})
+                return render(request, 'vistas/login.html', {'message': "El usuario o la contraseña es incorrecto"})
         else:
             return render(request, 'vistas/login.html')
     else:
