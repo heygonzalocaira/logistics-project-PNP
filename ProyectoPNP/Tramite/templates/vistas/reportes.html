@@ -21,11 +21,11 @@
     Reportes
 {% endblock %}
 
-{% block content %} 
+{% block content %}
     <div class="container">
         <div class="row">
             <div class="tm-left-right-container">
-                <div class="tm-blue-bg tm-left-column">                        
+                <div class="tm-blue-bg tm-left-column">
                     <div class="tm-logo-div text-xs-center">
                         <img src="{% static 'img/profile.png' %}" >
                         <div class="tm-logo-div2 text-xs-center">
@@ -36,36 +36,36 @@
                     <nav class="tm-main-nav">
                         <ul class="tm-main-nav-ul">
                             <li class="tm-nav-item">
-                                <a href="index.html" class="tm-nav-item-link">AÑADIR NUEVO</a>
+                                <a href="{% url 'index' %}" class="tm-nav-item-link">AÑADIR NUEVO</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="historial.html" class="tm-nav-item-link">HISTORIAL</a>
+                                <a href="{% url 't_historial' %}" class="tm-nav-item-link">HISTORIAL</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="reportes.html" class="tm-nav-item-link">REPORTES</a>
+                                <a href="{% url 't_reportes' %}" class="tm-nav-item-link">REPORTES</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="/logout" class="tm-nav-item-link">SALIR</a>
+                                <a href="{% url 'logout_user' %}" class="tm-nav-item-link">SALIR</a>
                             </li>
                         </ul>
                     </nav>
-                </div> 
+                </div>
                 <div class="tm-right-column2report">
                     <div >
                         <form action="/">
                           <h2 align="center">GENERAR REPORTES</h2>
                           <div class="btn-block" >
-                            <button type="submit" href="/">Pendiente</button>
-                            <button type="submit" href="/">Tramitado</button>
+                            <button type="submit">Pendiente</button>
+                            <button type="submit">Tramitado</button>
                           </div>
                           <div class="colums2report">
                             <div class="item">
-                              <label for="fname">Encargado</label>
-                              <input class="inputBorder"id="encargado_reportes" type="text" name="fname" placeholder="Buscar encargado.."/>
+                              <label for="encargado_reportes">Encargado</label>
+                              <input class="inputBorder" id="encargado_reportes" type="text" name="encargado_reportes" placeholder="Buscar encargado.."/>
                             </div>
                             <div class="item">
-                              <label for="lname">Fecha</label>
-                              <input class="inputBorder"id="fecha_reportes" type="text" name="lname" placeholder="dd/mm/aa"/>
+                              <label for="fecha_reportes">Fecha</label>
+                              <input class="inputBorder" id="fecha_reportes" type="text" name="fecha_reportes" placeholder="dd/mm/aa"/>
                             </div>
                           </div>
                           <div class="colums2report">
@@ -79,12 +79,13 @@
                                 </select>
                               </div>
                             <div class="item">
-                                <label for="fname">Unidad</label>
-                                <input class="inputBorder"id="unidad_reportes" type="text" name="fname" placeholder="Buscar unidad.."/>
+                                <label for="unidad_reportes">Unidad</label>
+                                <input class="inputBorder" id="unidad_reportes" type="text" name="unidad_reportes" placeholder="Buscar unidad.."/>
                             </div>
                             <div class="btn-block"  align="right">
-                                <button type="submit" href="/">GENERAR</button>
+                                <button type="submit">GENERAR</button>
                             </div>
+                          </div>
                         </form>
                       </div>
                 </div>

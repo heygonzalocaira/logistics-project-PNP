@@ -12,6 +12,7 @@ def login_user(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                # return redirect('admin/')
                 return redirect(reverse('index'))
             else:
                 return render(request, 'vistas/login.html', {'message': "Fallo la autenticación"})
@@ -30,3 +31,13 @@ def logout_user(request):
 @login_required
 def index_tramite(request):
     return render(request, 'vistas/index.html')
+
+
+@login_required
+def tramite_historial(request):
+    return render(request, 'vistas/historial.html')
+
+
+@login_required
+def tramite_reportes(request):
+    return render(request, 'vistas/reportes.html')
