@@ -7,6 +7,5 @@ urlpatterns = [
     path('tramite/historial', tramite_historial, name='t_historial'),
     path('tramite/reportes', tramite_reportes, name='t_reportes'),
     path('logout', logout_user, name='logout_user'),
-    path('historial', historial_tramite, name='historial_tramite'),
 ]
 
