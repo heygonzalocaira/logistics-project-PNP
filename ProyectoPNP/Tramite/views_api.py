@@ -27,5 +27,3 @@ class MAreaORIViewSet(viewsets.ModelViewSet):
 class MUbigeoViewSet(viewsets.ModelViewSet):
     queryset = MUbigeo.objects.all()
     serializer_class = MUbigeoSerializer
-
-

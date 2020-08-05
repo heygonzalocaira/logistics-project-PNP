@@ -22,13 +22,13 @@
 
 
 {% block title %}
-    Historial 
+    Historial
 {% endblock %}
 {% block content %}
     <div class="container">
         <div class="row">
             <div class="tm-left-right-container">
-                <div class="tm-blue-bg tm-left-column">                        
+                <div class="tm-blue-bg tm-left-column">
                     <div class="tm-logo-div text-xs-center">
                         <img src="{% static 'img/profile.png' %}" >
                         <div class="tm-logo-div2 text-xs-center">
@@ -39,16 +39,16 @@
                     <nav class="tm-main-nav">
                         <ul class="tm-main-nav-ul">
                             <li class="tm-nav-item">
-                                <a href="index.html" class="tm-nav-item-link">AÑADIR NUEVO</a>
+                                <a href="{% url 'index' %}" class="tm-nav-item-link">AÑADIR NUEVO</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="historial.html" class="tm-nav-item-link">HISTORIAL</a>
+                                <a href="{% url 't_historial' %}" class="tm-nav-item-link">HISTORIAL</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="reportes.html" class="tm-nav-item-link">REPORTES</a>
+                                <a href="{% url 't_reportes' %}" class="tm-nav-item-link">REPORTES</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="/logout" class="tm-nav-item-link">SALIR</a>
+                                <a href="{% url 'logout_user' %}" class="tm-nav-item-link">SALIR</a>
                             </li>
                         </ul>
                     </nav>

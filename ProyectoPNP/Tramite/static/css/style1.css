@@ -27,7 +27,7 @@ a:focus {
 	margin: 10px 10px 10px 10px;
 	padding: 20px;
 	background: #fff;
-	box-shadow: 0 2px 4px #ccc; 
+	box-shadow: 0 2px 5px #ccc; 
 	}
 	input, select, textarea {
 	margin-bottom: 10px;
@@ -56,12 +56,11 @@ a:focus {
 	color: #095484;
 	}
 	input:hover, select:hover, textarea:hover {
-	box-shadow: 0 0 2px 0 #a4adb3;
+	box-shadow: 0 0 5px 0 #a4adb3;
 	}
 	.btn-block {
 	margin-top: 20px;
 	text-align: center;
-	align-content: space-between;
 	}
 	button {
 	width: 150px;
@@ -137,19 +136,6 @@ hr {
 .colums2 div {
 	width:50%;
 	}
-.colums2report {
-	display:flex;
-	justify-content:space-between;
-	flex-direction:row;
-	flex-wrap:wrap;
-	/* Arriba | Horizontal | Abajo */
-	margin: 2em 10em 2em;
-	align-content: space-between;
-}
-.colums2report div {
-	width:50%;
-}
-
 .colums3 {
 	display:flex;
 	justify-content:space-between;
@@ -312,12 +298,6 @@ textarea:-ms-input-placeholder {
 	.tm-right-column {
 		float: right;
 		width: 70%;
-		
-	}
-	.tm-right-column2report {
-		float: right;
-		width: 70%;
-		margin: 40px auto auto auto; /*  arriba, derecha,  abajo, izquierda */
 	}
 
 	.tm-nav-item {

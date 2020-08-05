@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+
 {% endblock %}
 
 
@@ -36,77 +37,78 @@
                     <nav class="tm-main-nav">
                         <ul class="tm-main-nav-ul">
                             <li class="tm-nav-item">
-                                <a href="index.html" class="tm-nav-item-link">AÑADIR NUEVO</a>
+                                <a href="{% url 'index' %}" class="tm-nav-item-link">AÑADIR NUEVO</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="historial.html" class="tm-nav-item-link">HISTORIAL</a>
+                                <a href="{% url 't_historial' %}" class="tm-nav-item-link">HISTORIAL</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="reportes.html" class="tm-nav-item-link">REPORTES</a>
+                                <a href="{% url 't_reportes' %}" class="tm-nav-item-link">REPORTES</a>
                             </li>
                             <li class="tm-nav-item">
-                                <a href="/logout" class="tm-nav-item-link">SALIR</a>
+                                <a href="{% url 'logout_user' %}" class="tm-nav-item-link">SALIR</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
 
                 <div class="tm-right-column">
-                    <div >
-                        <form action="/">
-                            <h2 align="center">REGISTRAR NUEVO DOCUMENTO</h2>
+                    <div>
+                        <h2 align="center">REGISTRAR NUEVO DOCUMENTO</h2>
+
+                        <form method="POST" id="Form_add_registro">
+                            {% csrf_token %}
                             <div class="btn-block"  align="tm-left-right-container">
-                                <button type="submit" href="/">Común</button>
-                                <button type="submit" href="/">Clasificado</button>
-                                <button type="submit" href="/">Limpiar</button>
-                                <button type="submit" href="/">Registrar</button>
+                                <button type="submit">Común</button>
+                                <button type="submit">Clasificado</button>
+                                <button type="button" class="btn btn-danger" onclick="limpiarForm()">Limpiar</button>
                             </div>
                             <div class="colums4">
                                 <div class="item">
-                                    <label for="fname">Clasificación</label>
-                                    <input class="inputBorder" id="clasificacion_index" type="text" name="fname" />
+                                    <label for="clasificacion_index">Clasificación</label>
+                                    <input class="inputBorder" id="clasificacion_index" type="text" name="clasificacion_index" />
                                 </div>
                                 <div class="item">
-                                    <label for="lname">Nro de hoja</label>
-                                    <input class="inputBorder" id="n_hoja_index" type="text" name="lname" placeholder="Ej.0001"/>
+                                    <label for="n_hoja_index">Nro de hoja</label>
+                                    <input class="inputBorder" id="n_hoja_index" type="number" name="n_hoja_index" placeholder="Ej.0001"/>
                                 </div>
                                 <div class="item">
-                                    <label for="fname">Fecha de ingreso</label>
-                                    <input class="inputBorder" id="f_ingreso_index" type="text" name="fname" placeholder="dd/mm/aa" />
+                                    <label for="f_ingreso_index">Fecha de ingreso</label>
+                                    <input class="inputBorder" id="f_ingreso_index" type="date" name="f_ingreso_index" placeholder="dd/mm/aa" />
                                 </div>
                                 <div class="item">
-                                    <label for="lname">Fecha de salida</label>
-                                    <input class="inputBorder" id="f_salida_index" type="text" name="lname" placeholder="dd/mm/aa"/>
+                                    <label for="f_salida_index">Fecha de salida</label>
+                                    <input class="inputBorder" id="f_salida_index" type="date" name="f_salida_index" placeholder="dd/mm/aa"/>
                                 </div>
                             </div>
                             <hr/>
                             <div class="colums2">
                                 <div class="item">
-                                  <label for="fname">Unidad de remitente</label>
-                                  <input class="inputBorder"id="u_remitente_index" type="text" name="fname" placeholder="Buscar unidad.."/>
+                                  <label for="u_remitente_index">Unidad de remitente</label>
+                                  <input class="inputBorder" id="u_remitente_index" type="text" name="u_remitente_index" placeholder="Buscar unidad.."/>
                                 </div>
                                 <div class="item">
-                                  <label for="lname">Remitente</label>
-                                  <input class="inputBorder"id="remitente_index" type="text" name="lname" placeholder="Remitente"/>
+                                  <label for="remitente_index">Remitente</label>
+                                  <input class="inputBorder" id="remitente_index" type="text" name="remitente_index" placeholder="Remitente"/>
                                 </div>
                               </div>
                             <hr/>
                               <div class="colums2">
                                   <div class="item">
-                                      <label for="fname">Área de destino</label>
-                                      <input class="inputBorder"id="a_destino_index" type="text" name="fname" placeholder="Seleccionar"/>
+                                      <label for="a_destino_index">Área de destino</label>
+                                      <input class="inputBorder" id="a_destino_index" type="text" name="a_destino_index" placeholder="Seleccionar"/>
                                   </div>
                                   <div class="item">
-                                      <label for="lname">Unidad de destino</label>
-                                      <input class="inputBorder"id="u_destino_index" type="text" name="lname" placeholder="Buscar unidad.."/>
+                                      <label for="u_destino_index">Unidad de destino</label>
+                                      <input class="inputBorder" id="u_destino_index" type="text" name="u_destino_index" placeholder="Buscar unidad.."/>
                                   </div>
                                   <div class="item">
-                                      <label for="fname">Encargado</label>
-                                      <input class="inputBorder"id="encargado_index" type="text" name="fname" placeholder="Buscar encargado.." />
+                                      <label for="encargado_index">Encargado</label>
+                                      <input class="inputBorder" id="encargado_index" type="text" name="encargado_index" placeholder="Buscar encargado.." />
                                   </div>
                                   <div class="item">
-                                      <label for="lname">Documento de Salida</label>
-                                      <input class="inputBorder"id="d_salida_index" type="text" name="lname" placeholder="Documento de respuesta" />
+                                      <label for="d_salida_index">Documento de Salida</label>
+                                      <input class="inputBorder" id="d_salida_index" type="date" name="d_salida_index" placeholder="Documento de respuesta" />
                                   </div>
                               </div>
                             <hr/>
@@ -121,12 +123,12 @@
                                     </select>
                                 </div>
                                 <div class="item">
-                                    <label for="lname">Unidad de destino</label>
-                                    <input class="inputBorder"id="u_destino_2" type="text" name="lname" placeholder="Ej.500A"/>
+                                    <label for="u_destino_2">Unidad de destino</label>
+                                    <input class="inputBorder" id="u_destino_2" type="text" name="u_destino_2" placeholder="Ej.500A"/>
                                 </div>
                                 <div class="item">
-                                    <label for="fname">Encargado</label>
-                                    <input class="inputBorder"id="encargado_2" type="text" name="fname" placeholder="dd/mm/aa"/>
+                                    <label for="encargado_2">Encargado</label>
+                                    <input class="inputBorder" id="encargado_2" type="text" name="encargado_2" placeholder="dd/mm/aa"/>
                                 </div>
                             </div>
                             <div class="colums2">
@@ -136,8 +138,11 @@
                                 </div>
                                 <div class="item">
                                     <p>Observaciones</p>
-                                    <textarea class="textBorder" id="t_observaciones"rows="5" placeholder=" Escriba aqui sus Obsercvaciones"></textarea>
+                                    <textarea class="textBorder" id="t_observaciones" rows="5" placeholder=" Escriba aqui sus Obsercvaciones"></textarea>
                                 </div>
+                            </div>
+                            <div class="btn-block"  align="tm-left-right-container">
+                                <button type="submit">Registrar</button>
                             </div>
                         </form>
                     </div>
@@ -148,3 +153,21 @@
 
 {% endblock %}
 
+{% block scripts %}
+    <script src="{% static 'js/jquery_3_5.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>
+    <script>
+        function limpiarForm()
+        {
+            console.log("Pulso");
+            $("#Form_add_registro")[0].reset();
+        }
+    </script>
+    <script>
+    $(document).ready(function()
+    {
+    });
+
+    </script>
+{% endblock %}

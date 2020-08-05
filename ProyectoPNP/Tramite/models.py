@@ -40,6 +40,9 @@ class MUser(models.Model):
     MotivoBaja = models.TextField()
     obs = models.TextField()
 
+    class Meta:
+        verbose_name_plural = "Personal"
+
 
 class MtipoDocumento(models.Model):
     Documento = models.CharField(max_length=60)
@@ -49,6 +52,9 @@ class MtipoDocumento(models.Model):
     tipo = models.IntegerField()
     observacion = models.TextField()
 
+    class Meta:
+        verbose_name_plural = "Documentos"
+
 
 class MUbigeo(models.Model):
     departamento = models.CharField(max_length=40)
@@ -56,6 +62,9 @@ class MUbigeo(models.Model):
     distrito = models.CharField(max_length=40)
     estado = models.IntegerField()
     observacion = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Área"
 
 
 class RegDocumentosORI(models.Model):
