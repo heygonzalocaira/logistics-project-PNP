@@ -16,12 +16,24 @@ class MUserGrado(models.Model):
     Estado = models.IntegerField()
     obs = models.TextField()
 
+    def __str__(self):
+        return self.Grado
+
+    class Meta:
+        verbose_name_plural = "Grado"
+
 
 class MUserRol(models.Model):
     rol = models.CharField(max_length=100)
     Descripcion = models.TextField()
     Estado = models.IntegerField()
     obs = models.TextField()
+
+    def __str__(self):
+        return self.rol
+
+    class Meta:
+        verbose_name_plural = "Roles"
 
 
 class MUser(models.Model):
@@ -34,11 +46,14 @@ class MUser(models.Model):
     Nombres = models.CharField(max_length=50)
     Imagen = models.ImageField(upload_to="img/")
     Administrador = models.BooleanField()
-    idRol = models.IntegerField()
+    idRol = models.ForeignKey('MUserRol', on_delete=models.CASCADE)
     activo = models.BooleanField()
     estado = models.IntegerField()
     MotivoBaja = models.TextField()
     obs = models.TextField()
+
+    def __str__(self):
+        return self.Nombres
 
     class Meta:
         verbose_name_plural = "Personal"
@@ -52,8 +67,11 @@ class MtipoDocumento(models.Model):
     tipo = models.IntegerField()
     observacion = models.TextField()
 
+    def __str__(self):
+        return self.Documento
+
     class Meta:
-        verbose_name_plural = "Documentos"
+        verbose_name_plural = "TipoDocumentos"
 
 
 class MUbigeo(models.Model):
@@ -62,9 +80,6 @@ class MUbigeo(models.Model):
     distrito = models.CharField(max_length=40)
     estado = models.IntegerField()
     observacion = models.TextField()
-
-    class Meta:
-        verbose_name_plural = "Área"
 
 
 class RegDocumentosORI(models.Model):
@@ -104,6 +119,11 @@ class MAreaORI(models.Model):
     email = models.EmailField()
     observacion = models.TextField()
 
+    def __str__(self):
+        return self.area
+
+    class Meta:
+        verbose_name_plural = "Área"
 
 
 class Documentos(models.Model):
@@ -132,4 +152,6 @@ class Documentos(models.Model):
     tipo = models.IntegerField()
     observacion = models.TextField()
 
+    class Meta:
+        verbose_name_plural = "Documentos"
 # class Doc_confidencial(models.Model):
