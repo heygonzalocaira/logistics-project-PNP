@@ -41,4 +41,3 @@ def tramite_historial(request):
 @login_required
 def tramite_reportes(request):
     return render(request, 'vistas/reportes.html')
-
