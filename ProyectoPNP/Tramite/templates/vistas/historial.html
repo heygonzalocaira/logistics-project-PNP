@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"> 
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>  
+
 {% endblock %}
 
 
@@ -50,10 +54,84 @@
                     </nav>
                 </div>
                 <div class="tm-right-column">
-                    <input class="inputBorder2"id="fname" type="text" name="fname" placeholder="Buscar por Area,por persona.."/>
+                    <div >
+                        <form>
+                            <table id="TablaFiltradora" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo</th>
+                                        <th>Área</th>
+                                        <th>Encargado</th>
+                                        <th>Estado</th>
+                                        <th>Fecha</th>
+                                        <th>Acción  </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>System Architect</td>
+                                        <td>Edinburgh</td>
+                                        <td>61</td>
+                                        <td>2011/04/25</td>
+                                        <td>$320,800</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>63</td>
+                                        <td>2011/07/25</td>
+                                        <td>$170,750</td>
+                                    </tr>
+                                </tbody>   
+                            </table> 
+
+
+
+                        </form>
+                      </div>
+                    </div>
+                   </div>
                 </div>
+                
             </div>
         </div>
-    </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>  
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable({
+                "language":{
+                    "url" : "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+                }
+            });
+        });
+    </script>
+    <script>
+        $("#TablaFiltradora").dataTable({
+        "language":{
+           "url" : "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+        },
+		"serverSide": true,
+		'ajax':
+		{
+			//'url': '',
+		},
+		'columns':[
+			{'data':'table_tipo'},
+			{'data':'table_area'},
+			{'data':'table_encargado'},
+			{'data':'table_estado'},
+			{'data':'table_fecha'},
+			{'data':'acción'},
+	
+			{'defaultContent':"<button type='button' id='Editar' class='btn btn-success' style='padding: 4px 10px;margin: 2px;' ><i class='fa fa-pencil-square-o'></i></button><button type='button' id='Eliminar' style='padding: 4px 10px;' class='btn btn-danger'><i class='fa fa-trash-o'></i></button>",'sWidth':'10%'}
+		]
+	});
+    </script>
 {% endblock %}

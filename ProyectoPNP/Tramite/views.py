@@ -30,3 +30,7 @@ def logout_user(request):
 @login_required
 def index_tramite(request):
     return render(request, 'vistas/index.html')
+
+
+def historial_tramite(request):
+    return render(request, 'vistas/historial.html')
