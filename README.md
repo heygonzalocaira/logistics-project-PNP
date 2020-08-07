@@ -16,7 +16,9 @@
 
 ## Descripción del proyecto
 
-![alt text](https://ukit.com/help/_bl/0/41899733.png)
+<p align="center">
+  <img src="assets/sistema.png" width="800">
+</p>
 
 Este  sistema se utiliza para registrar, organizar y encontrar todos estos documentos de manera electrónica y sencilla. Un sistema de gestión de trámite documentario tiene el poder de reunir todos estos documentos en un solo lugar.
 
@@ -67,9 +69,16 @@ python -m pip install pillow
 ```
 ## Ejecutando el Sistema 
 
-Este espacio es para mostrar ejemplos útiles de cómo se puede usar un proyecto. Capturas de pantalla adicionales, ejemplos de código y demostraciones funcionan bien en este espacio. También puede vincular a más recursos.
+1. Ingresar a la carpeta ProyectoPNP y realizar el siguiente comando en consola
 
-_Para obtener más ejemplos,consulte la [Documentación](https://google.com)_
+```pytho
+python manage.py runserver
+```
+2. Dirigerte a tu navergador principal y escribir los siguiente
+
+```pytho
+http://127.0.0.1:8000/
+```
 
 ## Versionado
 
