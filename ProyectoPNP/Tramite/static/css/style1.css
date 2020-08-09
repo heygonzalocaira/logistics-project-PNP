@@ -293,11 +293,11 @@ textarea:-ms-input-placeholder {
 	}
 
 	.container { width: 100%; }
-	.tm-left-column { width: 30%; }
+	.tm-left-column { width: 20%; }
 
 	.tm-right-column {
 		float: right;
-		width: 70%;
+		width: 80%;
 	}
 
 	.tm-nav-item {
