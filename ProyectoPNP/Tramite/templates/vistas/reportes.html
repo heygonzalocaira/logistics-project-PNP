@@ -22,74 +22,70 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="tm-left-right-container">
-                <div class="tm-blue-bg tm-left-column">
-                    <div class="tm-logo-div text-xs-center">
-                        <img src="{% static 'img/profile.png' %}" >
-                        <div class="tm-logo-div2 text-xs-center">
-                            Usuario {{user.username}}<br>
-                            <a>Administrador</a>
-                        </div>
-                    </div>
-                    <nav class="tm-main-nav">
-                        <ul class="tm-main-nav-ul">
-                            <li class="tm-nav-item">
-                                <a href="{% url 'index' %}" class="tm-nav-item-link">AÑADIR NUEVO</a>
-                            </li>
-                            <li class="tm-nav-item">
-                                <a href="{% url 't_historial' %}" class="tm-nav-item-link">HISTORIAL</a>
-                            </li>
-                            <li class="tm-nav-item">
-                                <a href="{% url 't_reportes' %}" class="tm-nav-item-link">REPORTES</a>
-                            </li>
-                            <li class="tm-nav-item">
-                                <a href="{% url 'logout_user' %}" class="tm-nav-item-link">SALIR</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="tm-right-column">
-                    <div >
-                        <form action="/">
-                          <h2 align="center">GENERAR REPORTES</h2>
-                          <div class="btn-block" >
-                            <button type="submit">Pendiente</button>
-                            <button type="submit">Tramitado</button>
-                          </div>
-                          <div class="colums2report">
-                            <div class="item">
-                              <label for="encargado_reportes">Encargado</label>
-                              <input class="inputBorder" id="encargado_reportes" type="text" name="encargado_reportes" placeholder="Buscar encargado.."/>
-                            </div>
-                            <div class="item">
-                              <label for="fecha_reportes">Fecha</label>
-                              <input class="inputBorder" id="fecha_reportes" type="text" name="fecha_reportes" placeholder="dd/mm/aa"/>
-                            </div>
-                          </div>
-                          <div class="colums2report">
-                            <div class="item">
-                                <p>Area</p>
-                                <select>
-                                  <option value="">Todas</option>
-                                  <option value="A">A</option>
-                                  <option value="B">B</option>
-                                  <option value="C">C</option>
-                                </select>
-                              </div>
-                            <div class="item">
-                                <label for="unidad_reportes">Unidad</label>
-                                <input class="inputBorder" id="unidad_reportes" type="text" name="unidad_reportes" placeholder="Buscar unidad.."/>
-                            </div>
-                            <div class="btn-block"  align="right">
-                                <button type="submit">GENERAR</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
+    <div class="tm-left-right">
+        <div class="tm-blue-bg col-md-3 left">
+            <div class="tm-logo-div text-xs-center">
+                <img src="{% static 'img/profile.png' %}" >
+                <div class="tm-logo-div2 text-xs-center">
+                    Usuario {{user.username}}<br>
+                    <a>Administrador</a>
                 </div>
             </div>
+            <nav class="tm-main-nav">
+                <ul class="tm-main-nav-ul">
+                    <li class="tm-nav-item">
+                        <a href="{% url 'index' %}" class="tm-nav-item-link">AÑADIR NUEVO</a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a href="{% url 't_historial' %}" class="tm-nav-item-link">HISTORIAL</a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a href="{% url 't_reportes' %}" class="tm-nav-item-link">REPORTES</a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a href="{% url 'logout_user' %}" class="tm-nav-item-link">SALIR</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-9 right">
+            <form action="/">
+                <h3 align="center">GENERAR REPORTES</h3>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="togBtn">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+                <div class="group row">
+                <div class="col-md-6 item">
+                    <label for="encargado_reportes">Encargado</label>
+                    <input class="inputBorder" id="encargado_reportes" type="text" name="encargado_reportes" placeholder="Buscar encargado.."/>
+                </div>
+                <div class="col-md-6 item">
+                    <label for="fecha_reportes">Fecha</label>
+                    <input class="inputBorder" id="fecha_reportes" type="text" name="fecha_reportes" placeholder="dd/mm/aa"/>
+                </div>
+                </div>
+                <div class="group row">
+                    <div class="col-md-6 item">
+                        <label>Area</label>
+                        <select>
+                            <option value="">Todas</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                        </div>
+                    <div class="col-md-6 item">
+                        <label for="unidad_reportes">Unidad</label>
+                        <input class="inputBorder" id="unidad_reportes" type="text" name="unidad_reportes" placeholder="Buscar unidad.."/>
+                    </div>
+                </div>
+                <div class="btn-block"  align="end">
+                    <button type="submit">Generar</button>
+                </div>
+            </form>
         </div>
     </div>
 
