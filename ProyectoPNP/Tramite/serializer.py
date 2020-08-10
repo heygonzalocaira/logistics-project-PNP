@@ -6,6 +6,7 @@ class MtipoDocumentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = MtipoDocumento
         fields = [
+            'id',
             'Documento',
             'nombre_corto',
             'activo',
@@ -50,6 +51,7 @@ class MAreaORISerializer(serializers.ModelSerializer):
     class Meta:
         model = MAreaORI
         fields = [
+            'id',
             'area',
             'grupo',
             'activo',

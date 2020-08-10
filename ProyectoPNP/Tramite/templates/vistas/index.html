@@ -50,16 +50,21 @@
             </nav>
         </div>
 
+
+
         <div class="col-md-9 right">
-            <form method="POST" id="Form_add_registro">
-                <h3 align="center">REGISTRAR NUEVO DOCUMENTO</h3>
+            <h3 align="center">REGISTRAR NUEVO DOCUMENTO</h3>
+            <form method="POST" id="Form_add_registro" action = "{% url 'doc_save' %}">
                 {% csrf_token %}
                 <div>
                     <label class="switch">
                         <input type="checkbox" id="togBtn">
-                        <div class="slider round"></div>
+                        <div class="slider round">
+
+                        </div>
                     </label>
                 </div>
+
                 <div class="group row">
                     <div class="col-md-3 item">
                         <label for="clasificacion_index">Clasificación</label>
@@ -91,41 +96,33 @@
                         <label for="remitente_index">Remitente</label>
                         <input class="inputBorder" id="remitente_index" type="text" name="remitente_index" placeholder="Remitente"/>
                     </div>
-                    </div>
+                </div>
                 <hr/>
-                    <div class="group row">
-                        <div class="col-md-3 item">
-                            <label for="a_destino_index">Área de destino</label>
-                            <select>
-                                <option value="">Selecionar</option>
-                                <option value="A">Area A</option>
-                                <option value="B">Area B</option>
-                                <option value="C">Area C</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3 item">
-                            <label for="u_destino_index">Unidad de destino</label>
-                            <input class="inputBorder" id="u_destino_index" type="text" name="u_destino_index" placeholder="Buscar unidad.."/>
-                        </div>
-                        <div class="col-md-3 item">
-                            <label for="encargado_index">Encargado</label>
-                            <input class="inputBorder" id="encargado_index" type="text" name="encargado_index" placeholder="Buscar encargado.." />
-                        </div>
-                        <div class="col-md-3 item">
-                            <label for="d_salida_index">Documento de Salida</label>
-                            <input class="inputBorder" id="d_salida_index" type="date" name="d_salida_index" placeholder="Documento de respuesta" />
-                        </div>
+                <div class="group row">
+                    <div class="col-md-3 item">
+                        <label for="a_destino_index">Área de destino</label>
+                        <select class="inputBorder" id="a_destino_index" name="a_destino_index">
+                        </select>
                     </div>
+                    <div class="col-md-3 item">
+                        <label for="u_destino_index">Unidad de destino</label>
+                        <input class="inputBorder" id="u_destino_index" name="u_destino_index" type="text" placeholder="Buscar unidad.."/>
+                    </div>
+                    <div class="col-md-3 item">
+                        <label for="encargado_index">Encargado</label>
+                        <input class="inputBorder" id="encargado_index"  name="encargado_index" type="text" placeholder="Buscar encargado.." />
+                    </div>
+                    <div class="col-md-3 item">
+                        <label for="d_salida_index">Documento de Salida</label>
+                        <input class="inputBorder" id="d_salida_index" name="d_salida_index" type="date" placeholder="Documento de respuesta" />
+                    </div>
+                </div>
                 <hr/>
                 <div class="group">
                     <div class="row">
                         <div class="col-md-4 item">
-                            <label>Tipo de documento</label>
-                            <select>
-                                <option value="">Selecionar</option>
-                                <option value="A">documento A</option>
-                                <option value="B">documento B</option>
-                                <option value="C">documento C</option>
+                            <label for="t_documento_index">Tipo de documento</label>
+                            <select class="inputBorder" id="t_documento_index" name="t_documento_index">
                             </select>
                         </div>
                         <div class="col-md-4 item">
@@ -139,40 +136,37 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 item">
-                            <label>Asunto</label>
-                            <textarea class="textBorder" id="t_asunto" rows="5" placeholder=" Escriba aqui el asunto"></textarea>
+                            <label for="t_asunto">Asunto</label>
+                            <textarea class="textBorder" id="t_asunto" name="t_asunto" rows="5" placeholder=" Escriba aqui el asunto"></textarea>
                         </div>
                         <div class="col-md-6 item">
-                            <label>Observaciones</label>
-                            <textarea class="textBorder" id="t_observaciones" rows="5" placeholder=" Escriba aqui sus Obsercvaciones"></textarea>
+                            <label for="t_observaciones">Observaciones</label>
+                            <textarea class="textBorder" id="t_observaciones" name="t_observaciones" rows="5" placeholder=" Escriba aqui sus Obsercvaciones"></textarea>
                         </div>
                     </div>
-                
                 </div>
+                <input id="area_nombre_index" name="area_nombre_index" type="hidden">
                 <div class="btn-block"  align="end">
-                    <button type="button" class="red-button" onclick="limpiarForm()">Limpiar</button>
-                    <button type="submit">Registrar</button>
+                    <button type="button" class="btn btn-danger" onclick="limpiarForm()">Limpiar</button>
+                    <button type="submit" class="btn">Registrar</button>
+
                 </div>
             </form>
         </div>
     </div>
 
+
 {% endblock %}
 
 {% block scripts %}
     <script src="{% static 'js/jquery_3_5.min.js' %}"></script>
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>
-    <script>
-        function limpiarForm()
-        {
-            console.log("Pulso");
-            $("#Form_add_registro")[0].reset();
-        }
-    </script>
+    <script src="{% static 'js/index_tramite.js' %}"></script>
     <script>
     $(document).ready(function()
     {
+        get_areas_destino();
+        get_tipos_documento();
+        changes();
     });
 
     </script>
