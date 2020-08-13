@@ -8,6 +8,36 @@
 
 {% endblock %}
 
+{% block scripts %}
+    <script src="{% static 'js/jquery_3_5.min.js' %}"></script>
+    <script>
+    $(document).ready(function()
+    {
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        var generate = document.getElementById("btn-generate").addEventListener("click", onShow);
+        var excel = document.getElementById("excel").addEventListener("click", onHidden);
+        var cancel = document.getElementById("btn-cancel").addEventListener("click", onHidden);
+
+        function onShow(){
+            document.getElementById('id01').style.display='block';
+        }
+
+        function onHidden(){
+            document.getElementById('id01').style.display='none';
+        }
+    });
+
+    </script>
+{% endblock %}
+
 
 {% block css %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
@@ -83,8 +113,27 @@
                     </div>
                 </div>
                 <div class="btn-block"  align="end">
-                    <button type="submit">Generar</button>
+                    <button type="button" class="btn" id="btn-generate">Generar</button>
                 </div>
+                <div id="id01" class="modal">
+                    <form class="modal-content" action="/action_page.php">
+                        <div class="container">
+                            <h3>Generar reporte</h3>
+                            <p>
+                                Tipo: Común <br>
+                                Encargado: Todos <br>
+                                Área: Todas <br>
+                                Unidad: Todas
+                            </p>
+                            
+                            <div class="clearfix">
+                                <button align="start" type="button" id="btn-cancel" class="btn cancelbtn">Cancel</button>
+                                <button align="end" type="button" id="excel" class="btn btn-danger deletebtn">Descargar Excel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
             </form>
         </div>
     </div>
