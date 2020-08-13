@@ -82,15 +82,37 @@
                                 </button>
                             </td>
                         </tr>
+                        
+                                           {% if data %}
+                        {% for doc in data %}
                         <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
+                            {% if doc.tipoDocumento == 1 %}
+                                <td> Clasificado </td>
+                            {% else %}
+                                <td> Normal </td>
+                            {% endif %}
+                            <td>{{doc.area_destino }}</td>
+                            <td>{{doc.encargado }}</td>
+                            {% if doc.estado == 1 %}
+                                <td> En tramite </td>
+                            {% else %}
+                                <td> Finalizado </td>
+                            {% endif %}
+                            <td>{{doc.fecha_ingreso }}</td>
+                            <td>
+                                <button type='button' id='Editar' class='btn btn-success' style='padding: 4px 10px;margin: 2px;' >
+                                    <i class='fa fa-pencil-square-o'></i>
+                                </button>
+                                <button type='button' id='Eliminar' style='padding: 4px 10px;' class='btn btn-danger'>
+                                    <i class='fa fa-trash-o'></i>
+                                </button>
+                            </td>
                         </tr>
-                    </tbody>
+                        {% endfor %}
+                        {% else %}
+                            <h1> No hay registros</h1>
+                        {% endif %}
+                     </tbody>
                 </table>
             </form>
         </div>
@@ -105,8 +127,13 @@
     <script src="{% static 'js/historial.js' %}"></script>
     <script>
         $(document).ready(function() {
+            $('#TablaFiltradora').DataTable({
+                "language":{
+                   "url" : "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+                },
+            });
+            //llenar_tabla();
 
-            llenar_tabla();
 
         });
     </script>

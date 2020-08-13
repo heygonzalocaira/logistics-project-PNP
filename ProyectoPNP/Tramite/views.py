@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from django.http import HttpResponse
+from django.http import HttpResponse , JsonResponse
 from .models import *
 
 
@@ -33,6 +33,12 @@ def logout_user(request):
 @login_required
 def index_tramite(request):
     return render(request, 'vistas/index.html')
+
+
+@login_required
+def listar_documentos(request):
+    list_doc = Documentos.objects.all()
+    return render(request, 'vistas/historial.html', {"data":list_doc})
 
 
 @login_required
