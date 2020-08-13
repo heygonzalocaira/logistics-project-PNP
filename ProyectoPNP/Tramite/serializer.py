@@ -84,7 +84,7 @@ class DocumentosSerializer(serializers.ModelSerializer):
             'tipoDocumento',
             'n_documento',
             'fecha_documento',
-            'id_unidadEntrega',
+            # 'id_unidadEntrega',
             'unidadEntrega',
             'quien_entrega',
             'id_area',
