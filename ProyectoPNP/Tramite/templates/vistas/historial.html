@@ -83,42 +83,24 @@
                         </tr>
                     </tbody>
                 </table>
-            </form>    
+            </form>
         </div>
     </div>
 
 {% endblock %}
 
+
 {% block scripts %}
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="{% static 'js/jquery_3_5.min.js' %}"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="{% static 'js/historial.js' %}"></script>
     <script>
         $(document).ready(function() {
-            $('#table').DataTable({
-                "language":{
-                    "url" : "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-                }
-            });
+
+            llenar_tabla();
+
         });
     </script>
-    <script>
-        $("#TablaFiltradora").dataTable({
-        "language":{
-           "url" : "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-        },
-		"serverSide": true,
-		'ajax':
-		{
-			//'url': '',
-		},
-		'columns':[
-			{'data':'tipoDocumento'},
-			{'data':'area_destino'},
-			{'data':'encargado'},
-			{'data':'activo'},
-			{'data':'fecha_ingreso'},
-			{'defaultContent':"<button type='button' id='Editar' class='btn btn-success' style='padding: 4px 10px;margin: 2px;' ><i class='fa fa-pencil-square-o'></i></button><button type='button' id='Eliminar' style='padding: 4px 10px;' class='btn btn-danger'><i class='fa fa-trash-o'></i></button>",'sWidth':'10%'}
-		]
-	});
-    </script>
+
+
 {% endblock %}
