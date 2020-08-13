@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% include "edit.html" %}
 
 {% block metadata %}
     <meta charset="utf-8">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
@@ -71,7 +73,14 @@
                             <td>Edinburgh</td>
                             <td>61</td>
                             <td>2011/04/25</td>
-                            <td>$320,800</td>
+                            <td>
+                                <button type='button' id='Editar' class='btn btn-success' style='padding: 4px 10px;margin: 2px;' >
+                                    <i class='fa fa-pencil-square-o'></i>
+                                </button>
+                                <button type='button' id='Eliminar' style='padding: 4px 10px;' class='btn btn-danger'>
+                                    <i class='fa fa-trash-o'></i>
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>Garrett Winters</td>
