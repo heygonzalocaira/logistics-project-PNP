@@ -82,15 +82,28 @@
                                 </button>
                             </td>
                         </tr>
+                                           {% if data %}
+                        {% for doc in data %}
                         <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
+                            {% if doc.tipoDocumento == 1 %}
+                                <td> Clasificado </td>
+                            {% else %}
+                                <td> Normal </td>
+                            {% endif %}
+                            <td>{{doc.area_destino }}</td>
+                            <td>{{doc.encargado }}</td>
+                            {% if doc.estado == 1 %}
+                                <td> En tramite </td>
+                            {% else %}
+                                <td> Finalizado </td>
+                            {% endif %}
+                            <td>{{doc.fecha_ingreso }}</td>
                         </tr>
-                    </tbody>
+                        {% endfor %}
+                        {% else %}s
+                            <h1> No hay registros</h1>
+                        {% endif %}
+                     </tbody>
                 </table>
             </form>
         </div>
@@ -106,8 +119,8 @@
     <script>
         $(document).ready(function() {
 
-            //llenar_tabla();
-            
+           llenar_tabla();
+
         });
     </script>
 
