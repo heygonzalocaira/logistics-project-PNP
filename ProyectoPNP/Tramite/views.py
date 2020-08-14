@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from django.http import HttpResponse , JsonResponse
+from django.http import HttpResponse, JsonResponse
+from django.core import serializers
 from .models import *
 
 
@@ -33,12 +34,6 @@ def logout_user(request):
 @login_required
 def index_tramite(request):
     return render(request, 'vistas/index.html')
-
-
-@login_required
-def listar_documentos(request):
-    list_doc = Documentos.objects.all()
-    return render(request, 'vistas/historial.html', {"data":list_doc})
 
 
 @login_required
@@ -90,4 +85,24 @@ def save_documento(request):
         documennt.save()
         return redirect('/')
 
+    return HttpResponse("Pagina inexistente", status=404)
+
+
+@login_required()
+def tramite_reportes_consulta(request):
+
+    if request.method == 'GET':
+        id = int(request.GET['id'])
+        fecha = request.GET['date']
+        encargado = request.GET['encargado']
+        unidad = request.GET['unidad']
+        area = int(request.GET['area'])
+        documento = 0
+        if id == 1:
+            documento = Documentos.objects.filter(encargado=encargado).values()
+        elif id == 2:
+            documento = Documentos.objects.filter(unidadEntrega=unidad).values()
+        else:
+            documento = Documentos.objects.filter(id_area=area).values()
+        return JsonResponse({'data': list(documento)})
     return HttpResponse("Pagina inexistente", status=404)

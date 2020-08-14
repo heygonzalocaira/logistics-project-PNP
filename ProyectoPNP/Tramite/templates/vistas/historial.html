@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% include "edit.html" %}
 
 {% block metadata %}
     <meta charset="utf-8">
@@ -15,7 +14,6 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
@@ -67,37 +65,23 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                                           {% if data %}
-                        {% for doc in data %}
                         <tr>
-                            {% if doc.tipoDocumento == 1 %}
-                                <td> Clasificado </td>
-                            {% else %}
-                                <td> Normal </td>
-                            {% endif %}
-                            <td>{{doc.area_destino }}</td>
-                            <td>{{doc.encargado }}</td>
-                            {% if doc.estado == 1 %}
-                                <td> En tramite </td>
-                            {% else %}
-                                <td> Finalizado </td>
-                            {% endif %}
-                            <td>{{doc.fecha_ingreso }}</td>
-                            <td>
-                                <button type='button' id='Editar' class='btn btn-success' style='padding: 4px 10px;margin: 2px;' >
-                                    <i class='fa fa-pencil-square-o'></i>
-                                </button>
-                                <button type='button' id='Eliminar' style='padding: 4px 10px;' class='btn btn-danger'>
-                                    <i class='fa fa-trash-o'></i>
-                                </button>
-                            </td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
                         </tr>
-                        {% endfor %}
-                        {% else %}
-                            <h1> No hay registros</h1>
-                        {% endif %}
-                     </tbody>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                        </tr>
+                    </tbody>
                 </table>
             </form>
         </div>
@@ -112,16 +96,10 @@
     <script src="{% static 'js/historial.js' %}"></script>
     <script>
         $(document).ready(function() {
-            $('#TablaFiltradora').DataTable({
-                "language":{
-                   "url" : "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-                },
-            });
-            //llenar_tabla();
 
+           // llenar_tabla();
 
         });
     </script>
-
 
 {% endblock %}

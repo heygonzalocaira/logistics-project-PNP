@@ -8,36 +8,6 @@
 
 {% endblock %}
 
-{% block scripts %}
-    <script src="{% static 'js/jquery_3_5.min.js' %}"></script>
-    <script>
-    $(document).ready(function()
-    {
-        var modal = document.getElementById('id01');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        var generate = document.getElementById("btn-generate").addEventListener("click", onShow);
-        var excel = document.getElementById("excel").addEventListener("click", onHidden);
-        var cancel = document.getElementById("btn-cancel").addEventListener("click", onHidden);
-
-        function onShow(){
-            document.getElementById('id01').style.display='block';
-        }
-
-        function onHidden(){
-            document.getElementById('id01').style.display='none';
-        }
-    });
-
-    </script>
-{% endblock %}
-
 
 {% block css %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
@@ -79,8 +49,9 @@
             </nav>
         </div>
         <div class="col-md-9 right">
-            <form action="/">
+            <div class="container form-group">
                 <h3 align="center">GENERAR REPORTES</h3>
+                <br><br>
                 <div>
                     <label class="switch">
                         <input type="checkbox" id="togBtn">
@@ -94,29 +65,29 @@
                 </div>
                 <div class="col-md-6 item">
                     <label for="fecha_reportes">Fecha</label>
-                    <input class="inputBorder" id="fecha_reportes" type="text" name="fecha_reportes" placeholder="dd/mm/aa"/>
+                    <input class="inputBorder" id="fecha_reportes" type="date" value="2000-01-01" name="fecha_reportes" placeholder="dd/mm/aa"/>
                 </div>
                 </div>
                 <div class="group row">
                     <div class="col-md-6 item">
-                        <label>Area</label>
-                        <select>
-                            <option value="">Todas</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
+                        <label for="a_destino_index">Área</label>
+                        <select class="inputBorder" id="a_destino_index" name="a_destino_index">
                         </select>
-                        </div>
+                    </div>
                     <div class="col-md-6 item">
                         <label for="unidad_reportes">Unidad</label>
                         <input class="inputBorder" id="unidad_reportes" type="text" name="unidad_reportes" placeholder="Buscar unidad.."/>
                     </div>
                 </div>
                 <div class="btn-block"  align="end">
+                    <!--<button type="submit" id="generar_excel" name="generar_excel">Generar Excel</button>
+                    <button type="submit" id="generar_pdf" name="generar_pdf">Generar PDF</button>
+                </div>
+            </div>-->
                     <button type="button" class="btn" id="btn-generate">Generar</button>
                 </div>
                 <div id="id01" class="modal">
-                    <form class="modal-content" action="/action_page.php">
+                    <div class="modal-content">
                         <div class="container">
                             <h3>Generar reporte</h3>
                             <p>
@@ -125,17 +96,37 @@
                                 Área: Todas <br>
                                 Unidad: Todas
                             </p>
-                            
+
                             <div class="clearfix">
-                                <button align="start" type="button" id="btn-cancel" class="btn cancelbtn">Cancel</button>
-                                <button align="end" type="button" id="excel" class="btn btn-danger deletebtn">Descargar Excel</button>
+                                <button align="start" type="submit" id="btn-cancel" class="btn cancelbtn">Cancel</button>
+                                <button align="end" type="submit" id="generar_excel" name="generar_excel" class="btn btn-danger deletebtn">Descargar Excel</button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
 
-            </form>
+
+                <div class="table-responsive" style="display: none">
+                    <table id="data_table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
         </div>
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/jquery_3_5.min.js' %}"></script>
+    <script src="{% static 'js/reporte.js' %}"></script>
+    <script src="{% static 'js/Blob.min.js' %}"></script>
+    <script src="{% static 'js/FileSaver.min.js' %}"></script>
+    <script src="{% static 'js/xls.core.min.js' %}"></script>
+    <script src="{% static 'js/tableexport.js' %}"></script>
 {% endblock %}
