@@ -1,6 +1,27 @@
 var libre = true;
 $(document).ready(function()
 {
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal)
+        {
+            modal.style.display = "none";
+        }
+    }
+
+        var generate = document.getElementById("btn-generate").addEventListener("click", onShow);
+        var excel = document.getElementById("generar_excel").addEventListener("click", onHidden);
+        var cancel = document.getElementById("btn-cancel").addEventListener("click", onHidden);
+
+        function onShow(){
+            document.getElementById('id01').style.display='block';
+        }
+
+        function onHidden(){
+            document.getElementById('id01').style.display='none';
+        }
     get_areas_destino();
     area_change();
     nombre_change();

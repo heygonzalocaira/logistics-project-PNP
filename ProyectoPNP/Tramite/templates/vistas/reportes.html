@@ -80,10 +80,32 @@
                     </div>
                 </div>
                 <div class="btn-block"  align="end">
-                    <button type="submit" id="generar_excel" name="generar_excel">Generar Excel</button>
+                    <!--<button type="submit" id="generar_excel" name="generar_excel">Generar Excel</button>
                     <button type="submit" id="generar_pdf" name="generar_pdf">Generar PDF</button>
                 </div>
-            </div>
+            </div>-->
+                    <button type="button" class="btn" id="btn-generate">Generar</button>
+                </div>
+                <div id="id01" class="modal">
+                    <div class="modal-content">
+                        <div class="container">
+                            <h3>Generar reporte</h3>
+                            <p>
+                                Tipo: Común <br>
+                                Encargado: Todos <br>
+                                Área: Todas <br>
+                                Unidad: Todas
+                            </p>
+
+                            <div class="clearfix">
+                                <button align="start" type="submit" id="btn-cancel" class="btn cancelbtn">Cancel</button>
+                                <button align="end" type="submit" id="generar_excel" name="generar_excel" class="btn btn-danger deletebtn">Descargar Excel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="table-responsive" style="display: none">
                     <table id="data_table" class="table table-striped table-bordered">
                         <thead>
