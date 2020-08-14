@@ -6,6 +6,7 @@ urlpatterns = [
     path('tramite', index_tramite, name='index'),
     path('tramite/historial', listar_documentos, name='t_historial'),
     path('tramite/reportes', tramite_reportes, name='t_reportes'),
+    path('tramite/reportes/consulta', tramite_reportes_consulta, name='t_reportes_consulta'),
     path('tramite/save', save_documento, name='doc_save'),
     path('logout', logout_user, name='logout_user'),
 
