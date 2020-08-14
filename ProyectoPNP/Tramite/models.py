@@ -152,6 +152,19 @@ class Documentos(models.Model):
     tipo = models.IntegerField()
     observacion = models.TextField()
 
+    def serializeCustom(self):
+        data = {
+            "numero_doc": self.n_documento,
+            "hoja": self.numero_Hoja,
+            "unidad_entrega": self.unidadEntrega,
+            "quien_entrega": self.quien_entrega,
+            "unidad_Destino": self.unidad_Destino,
+            "fecha_documento": self.fecha_documento,
+            "area_destino": self.area_destino,
+            "encargado": self.encargado,
+        }
+        return data
+
     class Meta:
         verbose_name_plural = "Documentos"
 # class Doc_confidencial(models.Model):
