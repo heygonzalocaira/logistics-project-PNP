@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block metadata %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% endblock %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+
+{% endblock %}
+
+
+{% block title %}
+    Sistema de Confirmacion de Eliminar
+{% endblock %}
+
+{% block content %}
+    <div class="tm-left-right">
+        <div class="tm-blue-bg col-md-3 left">
+            <div class="tm-logo-div text-xs-center">
+                <img src="{% static 'img/profile.png' %}" >
+                <div class="tm-logo-div2 text-xs-center">
+                    Usuario {{user.username}}<br>
+                    <a>Administrador</a>
+                </div>
+            </div>
+            <nav class="tm-main-nav">
+                <ul class="tm-main-nav-ul">
+                    <li class="tm-nav-item">
+                        <a href="{% url 'index' %}" class="tm-nav-item-link">AÑADIR NUEVO</a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a href="{% url 't_historial' %}" class="tm-nav-item-link">HISTORIAL</a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a href="{% url 't_reportes' %}" class="tm-nav-item-link">REPORTES</a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a href="{% url 'logout_user' %}" class="tm-nav-item-link">SALIR</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-9 right">
+            <center>
+            <from id="elimanaplz" method="post">
+                {% csrf_token %}
+                <h3>  Estas seguro que deseas Elimnar este Documento </h3>
+                <a id='Eliminar' style='padding: 4px 10px;' class='btn btn-danger' href="{% url 'delete_doc' data.id %}"> Eliminar</a>
+                <a class="btn btn-default" href="{% url 't_historial'%}"> Cancelar </a>
+
+            </from>
+            </center>
+        </div>
+    </div>
+
+{% endblock %}

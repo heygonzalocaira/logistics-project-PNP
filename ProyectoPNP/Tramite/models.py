@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import model_to_dict
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -127,6 +128,7 @@ class MAreaORI(models.Model):
 
 
 class Documentos(models.Model):
+    #auto_id = models.AutoField(primary_key=True)
     fecha_ingreso = models.DateField()
     id_tipoDocumento = models.ForeignKey('MtipoDocumento', on_delete=models.CASCADE)
     tipoDocumento = models.IntegerField()
@@ -151,19 +153,6 @@ class Documentos(models.Model):
     estado = models.IntegerField()
     tipo = models.IntegerField()
     observacion = models.TextField()
-
-    def serializeCustom(self):
-        data = {
-            "numero_doc": self.n_documento,
-            "hoja": self.numero_Hoja,
-            "unidad_entrega": self.unidadEntrega,
-            "quien_entrega": self.quien_entrega,
-            "unidad_Destino": self.unidad_Destino,
-            "fecha_documento": self.fecha_documento,
-            "area_destino": self.area_destino,
-            "encargado": self.encargado,
-        }
-        return data
 
     class Meta:
         verbose_name_plural = "Documentos"
