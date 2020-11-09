@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import model_to_dict
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -132,7 +133,7 @@ class Documentos(models.Model):
     tipoDocumento = models.IntegerField()
     n_documento = models.IntegerField()
     fecha_documento = models.DateField()
-    id_unidadEntrega = models.ForeignKey('RegDocumentosORI', on_delete=models.CASCADE)
+    # id_unidadEntrega = models.ForeignKey('RegDocumentosORI', on_delete=models.CASCADE)
     unidadEntrega = models.CharField(max_length=80)
     quien_entrega = models.CharField(max_length=80)
     id_area = models.ForeignKey('MAreaORI', on_delete=models.CASCADE)
@@ -142,10 +143,10 @@ class Documentos(models.Model):
     contenido = models.TextField()
     #  id_unidadDestino = models.ForeignKey('RegDocumentosORI', on_delete=models.CASCADE)
     unidad_Destino = models.CharField(max_length=60)
-    documento_tramitado = models.CharField(max_length=100)
+    documento_tramitado = models.CharField(max_length=100, null=True)
     fecha_salida = models.DateField()
-    archivo = models.CharField(max_length=100)
-    ruta = models.FileField(upload_to='Documentos/')
+    archivo = models.CharField(max_length=100, null=True)
+    ruta = models.FileField(upload_to='Documentos/', null=True)
     numero_Hoja = models.IntegerField()
     activo = models.IntegerField()
     estado = models.IntegerField()
