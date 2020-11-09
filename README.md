@@ -36,7 +36,7 @@ $ sudo apt-get install python3
 
 ### Instalación
 
-1. Clon del repositorio
+1. Clonar repositorio
 ```sh
 git clone https://gitlab.com/MadScientist98/sistema-de-tramite-documentario-y-logistica-pnp.git
 ```
@@ -49,8 +49,22 @@ python -m pip install django
 django-admin --version
 ```
 
+### Dependencias
 
-
+1. Instalar Django Material Administration. [Github](https://github.com/MaistrenkoAnton/django-material-admin).
+```pytho
+pip install django-material-admin
+```
+2. Instalar DJango Rest framework. [Sitio Oficial](https://www.django-rest-framework.org/)
+```pytho
+pip install djangorestframework
+pip install markdown       # Markdown para una API navegable.
+pip install django-filter   # Filtrado
+```
+3. Instalar la biblioteca de imágenes Pillow. [Github](https://github.com/python-pillow/Pillow)
+```pytho
+python -m pip install pillow
+```
 ## Ejecutando el Sistema 
 
 Este espacio es para mostrar ejemplos útiles de cómo se puede usar un proyecto. Capturas de pantalla adicionales, ejemplos de código y demostraciones funcionan bien en este espacio. También puede vincular a más recursos.
