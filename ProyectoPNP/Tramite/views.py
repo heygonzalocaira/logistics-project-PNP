@@ -40,6 +40,20 @@ def listar_documentos(request):
     list_doc = Documentos.objects.all()
     return render(request, 'vistas/historial.html', {"data":list_doc})
 
+@login_required
+def docu_eliminar(request, id):
+    doc = Documentos.objects.get(id=id)
+    doc.delete()
+    return redirect('t_historial')
+
+@login_required
+def docu_eliminar2(request, id):
+    documen = Documentos.objects.get(id=id)
+    if request.method == 'POST':
+        documen.delete()
+        return redirect('t_historial')
+    return render(request,'vistas/elimar_prob.html',{"data":documen})
+
 
 @login_required
 def tramite_historial(request):

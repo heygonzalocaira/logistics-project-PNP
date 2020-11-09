@@ -8,6 +8,8 @@ urlpatterns = [
     path('tramite/reportes', tramite_reportes, name='t_reportes'),
     path('tramite/save', save_documento, name='doc_save'),
     path('logout', logout_user, name='logout_user'),
+    path('tramite/eliminar/<int:id>', docu_eliminar, name='delete_doc'),
+    path('tramite/eliminar2/<int:id>', docu_eliminar2, name='delete_doc2'),
 
 ]
 

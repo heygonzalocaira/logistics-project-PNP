@@ -128,6 +128,7 @@ class MAreaORI(models.Model):
 
 
 class Documentos(models.Model):
+    #auto_id = models.AutoField(primary_key=True)
     fecha_ingreso = models.DateField()
     id_tipoDocumento = models.ForeignKey('MtipoDocumento', on_delete=models.CASCADE)
     tipoDocumento = models.IntegerField()
