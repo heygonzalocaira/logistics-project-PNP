@@ -2,7 +2,7 @@
 ## Logistics Project PNP
 
  
-![Lines of code](https://img.shields.io/tokei/lines/github/madscientist98/logistics-project-PNP)
+![Lines of code](https://img.shields.io/tokei/lines/github/madscientistCS/logistics-project-PNP)
 
 ## Lista de Contenidos
 
@@ -46,7 +46,7 @@ $ sudo apt-get install python3
 
 1. Clonar repositorio
 ```sh
-git clone https://gitlab.com/MadScientist98/sistema-de-tramite-documentario-y-logistica-pnp.git
+git clone https://gitlab.com/madscientistCS/sistema-de-tramite-documentario-y-logistica-pnp.git
 ```
 2. Instalar paquetes de Python 
 ```pytho
