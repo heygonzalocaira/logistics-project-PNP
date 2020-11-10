@@ -1,3 +1,9 @@
+
+## Logistics Project PNP
+
+ 
+![Lines of code](https://img.shields.io/tokei/lines/github/madscientist98/logistics-project-PNP)
+
 ## Lista de Contenidos
 
 * [Descripción del proyecto](#descripción-del-proyecto)
